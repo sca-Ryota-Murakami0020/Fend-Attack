@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main() {
+  string playerName;
+  int playerCount;
+  float enemyCount;
+  char playCounter;
+  bool playFlag;
+
+  playerCount = 0;
+  enemyCount = 0.0f;
+  playFlag = true;
+  
+  cout << "プレイヤー名:";
+  cin >> playerName;
+  while(playFlag!=false)
+    {
+      cout << "敵が現れた！攻撃を選択しよう！" << endl;
+      cout << "1:打撃攻撃 2:斬撃攻撃 3:気弾攻撃" << endl;
+      cin >> playerCount;
+      enemyCount = rand() % 4;
+      if(playerCount>enemyCount)
+      {
+        cout << playerName << "の勝利だ！ゲームを続ける？(y/n)";
+        cin >> playCounter;
+        if(playCounter == 'y')
+        {
+          playFlag = true;
+        }
+        else if(playCounter == 'n')
+          {
+           playFlag = false;
+          }
+      }
+     if(playerCount<enemyCount)
+      {
+        cout << "敵の勝利だ！ゲームを続ける？(y/n)";
+        cin >> playCounter;
+         if(playCounter == 'y')
+        {
+          playFlag = true;
+        }
+        else if(playCounter == 'n')
+          {
+           playFlag = false;
+          }
+      }
+     if(playerCount==enemyCount)
+      {
+        cout << "攻撃が噛み合って逃げられた。ゲームを続ける？(y/n)";
+        cin >> playCounter;
+         if(playCounter == 'y')
+        {
+          playFlag = true;
+        }
+        else if(playCounter == 'n')
+          {
+           playFlag = false;
+          }
+      }
+    }
+  cout << "プレイ終了" << endl;
+}
